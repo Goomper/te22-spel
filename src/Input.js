@@ -19,7 +19,6 @@ export default class Input {
             this.mouseY = event.movementY
             console.log("X:" + event.clientX)
             console.log("Y:" + event.clientY)
-        })
-        */
+        })*/
     }
 }

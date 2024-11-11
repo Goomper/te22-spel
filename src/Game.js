@@ -9,9 +9,10 @@ export default class Game {
         this.width = width
         this.height = height
         this.input = new Input(this)
-        this.player = new Player(0, 0, 50, 50, "green", this)
-        this.enemy = new Enemy(500, 200, 100, 100, "red", this)
-        console.log("bredden: ", this.width)
+        this.player = new Player(0, 0, 50, 50, "green", 0.2, this)
+        this.enemy = new Enemy(300, 200, 100, 100, "red", 0.5, this)
+        console.log(this.enemy)
+        console.log("Width: ", this.width)
         //this.box = new GameObject(40, 100, 200, 200, "purple")
         //this.ball = new Ball(100, 200, 100, 100, "red")
     }

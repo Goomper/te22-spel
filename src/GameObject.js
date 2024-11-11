@@ -5,11 +5,10 @@ export default class GameObject {
         this.x = x
         this.y = y
         this.color = color
-        this.speed = 0.2
     }
 
     update(deltaTime) {
-        this.x += this.speed
+        
     }
 
     draw(ctx) {

@@ -1,11 +1,10 @@
-import GameObject from "./GameObject";
+import GameObject from "./GameObject"
 
 export default class Enemy extends GameObject {
     constructor(x, y, width, height, color, speed, game) {
         super(x, y, width, height, color, speed)
         this.game = game
-        this.diffX
-        this.diffY
+        this.speed = speed
     }
 
     update(deltaTime) {
