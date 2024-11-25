@@ -47,39 +47,17 @@ export default class Player extends GameObject {
             this.speedX = -this.maxSpeed
         }
 
-        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("d") && !this.game.input.keys.has("a") && this.speedX < 0.5 && this.speedX > -0.5) {
+        if (!this.game.input.keys.has("d") && !this.game.input.keys.has("a")) {
             this.speedX = 0
         }
-        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("d") && !this.game.input.keys.has("a") && this.speedY < 0.5 && this.speedY > -0.5) {
+        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s")) {
             this.speedY = 0
         }
-
-        if (!this.game.input.keys.has("a")) {
-            this.speedX += this.acceleration
-        } if (!this.game.input.keys.has("d")) {
-            this.speedX -= this.acceleration
-        } if (!this.game.input.keys.has("w")) {
-            this.speedY += this.acceleration
-        } if (!this.game.input.keys.has("s")) {
-            this.speedY -= this.acceleration 
+        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("d") && !this.game.input.keys.has("a")) {
+            this.maxframe = 0
+            this.spriteX = 0
+            this.fps = 0
         }
-
-        /*
-        if (!this.game.input.keys.has("ArrowRight") && !this.game.input.keys.has("ArrowLeft") && this.speedX !== 0) {
-            if (this.speedX > 0) {
-                this.speedX -= this.maxSpeedX
-            } else {
-                this.speedX += this.maxSpeedX
-            }
-        }
-        if (!this.game.input.keys.has("ArrowUp") && !this.game.input.keys.has("ArrowDown") && this.speedY !== 0) {
-            if (this.speedY > 0) {
-                this.speedY -= this.maxSpeedY
-            } else {
-                this.speedY += this.maxSpeedY
-            }
-        }
-            */
 
         if (this.x > this.game.enemy.x - this.width && this.x < this.game.enemy.x + this.game.enemy.width && this.y > this.game.enemy.y - this.height && this.y < this.game.enemy.y + this.game.enemy.height) {
             this.x = 0
@@ -104,6 +82,8 @@ export default class Player extends GameObject {
 
         if (this.speedX == 0 && this.speedY == 0) {
             this.spriteY = 0
+            this.spriteX = 0
+            this.fps = 0
         } else if (this.speedX > 0) {
             this.spriteY = 3
         } else if (this.speedX < 0) {

@@ -1,10 +1,10 @@
 export default class GameObject {
-    constructor(x, y, width, height, color) {
+    constructor(x, y, width, height) {
         this.width = width
         this.height = height
         this.x = x
         this.y = y
-        this.color = color
+        this.color = "red"
     }
 
     update(deltaTime) {
