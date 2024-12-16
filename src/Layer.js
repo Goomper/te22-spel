@@ -10,10 +10,7 @@ export default class Layer {
     }
   
     update(deltaTime) {
-      if (this.x <= -this.width) {
-        this.x = 0
-      }
-      this.x -= this.game.speed * this.speed
+      
     }
   
     draw(ctx) {

@@ -4,7 +4,6 @@ export default class GameObject {
         this.height = height
         this.x = x
         this.y = y
-        this.color = "red"
     }
 
     update(deltaTime) {

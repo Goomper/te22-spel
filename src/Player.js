@@ -19,11 +19,27 @@ export default class Player extends GameObject {
         this.spriteY = 0
         this.maxFrame = 4
         this.timer = 0
-        this.fps = 8
+        this.fps = 16
         this.interval = 1000 / this.fps
+        this.hp = 4
     }
 
     update(deltaTime) {
+        console.log(this.hp)
+        if (this.hp <= 3) {
+            this.game.ui.heart4.src = ""
+        } 
+        if (this.hp <= 2) {
+            this.game.ui.heart3.src = ""
+        }
+        if (this.hp <= 1) {
+            this.game.ui.heart2.src = ""
+        }
+        if (this.hp <= 0) {
+            this.game.ui.heart1.src = ""
+            
+        }
+
         if (this.game.input.keys.has("a")) {
             this.speedX -= this.acceleration
         } if (this.game.input.keys.has("d")) {
@@ -54,44 +70,44 @@ export default class Player extends GameObject {
             this.speedY = 0
         }
         if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("d") && !this.game.input.keys.has("a")) {
-            this.maxframe = 0
             this.spriteX = 0
-            this.fps = 0
+            this.interval = 20000000
         }
 
         if (this.x > this.game.enemy.x - this.width && this.x < this.game.enemy.x + this.game.enemy.width && this.y > this.game.enemy.y - this.height && this.y < this.game.enemy.y + this.game.enemy.height) {
-            this.x = 0
+            this.hp -= 1
+            this.x = 700
             this.y = 0
             this.speedX = 0
             this.speedY = 0
         }
         if (this.y < 0) {
             this.y = 0.2
-            this.speedY = 0
         } else if (this.y > this.game.height - this.height) {
             this.y = 429.8
-            this.speedY = 0
         }
         if (this.x < 0) {
             this.x = 0.2
-            this.speedX = 0
         } else if (this.x > this.game.width - this.width) {
             this.x = 803.8
-            this.speedX = 0
         }
 
-        if (this.speedX == 0 && this.speedY == 0) {
+        if (this.speedX == 0 && this.speedY == 0 && this.interval != 20000000) {
             this.spriteY = 0
             this.spriteX = 0
-            this.fps = 0
+            this.interval = 1000 / this.fps
         } else if (this.speedX > 0) {
             this.spriteY = 3
+            this.interval = 1000 / this.fps
         } else if (this.speedX < 0) {
             this.spriteY = 1
+            this.interval = 1000 / this.fps
         } else if (this.speedY > 0) {
             this.spriteY = 0
+            this.interval = 1000 / this.fps
         } else if (this.speedY < 0) {
             this.spriteY = 2
+            this.interval = 1000 / this.fps
         }
 
         this.x += this.speedX

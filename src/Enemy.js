@@ -29,11 +29,11 @@ export default class Enemy extends GameObject {
             this.image.src = "./src/assets/Santa_Down.png"
             this.frameWidth = 240
             this.frameHeight = 260
-        } else if (this.diffY < 0 && this.diffY <= this.diffX && this.diffY <= (this.diffX - this.diffX - this.diffX)) {
+        } else if (this.diffY <= 0 && this.diffY <= this.diffX && this.diffY <= (this.diffX - this.diffX - this.diffX)) {
             this.image.src = "./src/assets/Santa_Up.png"
             this.frameWidth = 240
             this.frameHeight = 270
-        } else if (this.diffX > 0) {
+        } else if (this.diffX >= 0) {
             this.image.src = "./src/assets/Santa_Right.png"
             this.frameWidth = 279
             this.frameHeight = 260
