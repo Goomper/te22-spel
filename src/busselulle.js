@@ -1,4 +1,4 @@
-import Interactable from "/src/Interactable";
+import Interactable from "./src/Interactable";
 
 export default class busselulle extends Interactable {
     constructor(x, y, width, height, player, game) {
