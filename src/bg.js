@@ -7,7 +7,7 @@ export default class bg {
         this.y = 0
 
         this.img = new Image()
-        this.img.src = "./src/assets/Map.png"
+        this.img.src = "./assets/Map.png"
 
         /*
         this.wall1.x = 61

@@ -13,7 +13,7 @@ export default class Äpple extends Interactable {
         this.taken = false
 
         this.img = new Image()
-        this.img.src = "./src/assets/Äpple.png"
+        this.img.src = "./assets/Äpple.png"
     }
 
     eat() {

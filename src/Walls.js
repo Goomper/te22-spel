@@ -7,7 +7,7 @@ export default class Walls {
         this.y = 0
 
         this.img = new Image()
-        this.img.src = "./src/assets/Väggar.png"
+        this.img.src = "./assets/Väggar.png"
 
         //this.imgdata = new ImageData(20, 20, 20, 20)
 

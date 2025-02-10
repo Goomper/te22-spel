@@ -7,7 +7,7 @@ export default class Enemy extends GameObject {
         this.speed = speed
 
         this.image = new Image()
-        this.image.src = "./src/assets/Santa_Down.png"
+        this.image.src = "./assets/Santa_Down.png"
         this.flip = false
         this.eatenlussebullar = 0
     }
