@@ -48,7 +48,7 @@ export default class Jumpscare {
     }
 
     spawnJumpscare() {
-        this.jumpscare.src = "./assets/Santa_Jumpscare.png"
+        this.jumpscare.src = "./public/assets/Santa_Jumpscare.png"
         this.currentJumpscareTimer = this.jumpscareTimer
         this.game.ui.timerun = false
     }

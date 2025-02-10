@@ -13,7 +13,7 @@ export default class busselulle extends Interactable {
         this.taken = false
 
         this.img = new Image()
-        this.img.src = "./assets/Lussekatt.png"
+        this.img.src = "./public/assets/Lussekatt.png"
     }
 
     eat() {

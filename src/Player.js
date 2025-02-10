@@ -6,7 +6,7 @@ export default class Player extends GameObject {
         this.game = game
 
         this.image = new Image()
-        this.image.src = "./assets/Tomte.png"
+        this.image.src = "./public/assets/Tomte.png"
 
         this.speedX = 0
         this.speedY = 0
@@ -42,25 +42,25 @@ export default class Player extends GameObject {
         this.currentEatCooldown += deltaTime
 
         if (this.hp == 4) {
-            this.game.ui.heart1.src = "./assets/Hjärta.png"
-            this.game.ui.heart2.src = "./assets/Hjärta.png"
-            this.game.ui.heart3.src = "./assets/Hjärta.png"
-            this.game.ui.heart4.src = "./assets/Hjärta.png"
+            this.game.ui.heart1.src = "./public/assets/Hjärta.png"
+            this.game.ui.heart2.src = "./public/assets/Hjärta.png"
+            this.game.ui.heart3.src = "./public/assets/Hjärta.png"
+            this.game.ui.heart4.src = "./public/assets/Hjärta.png"
         }
         if (this.hp == 3) {
-            this.game.ui.heart1.src = "./assets/Hjärta.png"
-            this.game.ui.heart2.src = "./assets/Hjärta.png"
-            this.game.ui.heart3.src = "./assets/Hjärta.png"
+            this.game.ui.heart1.src = "./public/assets/Hjärta.png"
+            this.game.ui.heart2.src = "./public/assets/Hjärta.png"
+            this.game.ui.heart3.src = "./public/assets/Hjärta.png"
             this.game.ui.heart4.src = ""
         } 
         if (this.hp == 2) {
-            this.game.ui.heart1.src = "./assets/Hjärta.png"
-            this.game.ui.heart2.src = "./assets/Hjärta.png"
+            this.game.ui.heart1.src = "./public/assets/Hjärta.png"
+            this.game.ui.heart2.src = "./public/assets/Hjärta.png"
             this.game.ui.heart3.src = ""
             this.game.ui.heart4.src = ""
         }
         if (this.hp <= 1) {
-            this.game.ui.heart1.src = "./assets/Hjärta.png"
+            this.game.ui.heart1.src = "./public/assets/Hjärta.png"
             this.game.ui.heart2.src = ""
             this.game.ui.heart3.src = ""
             this.game.ui.heart4.src = ""
@@ -78,15 +78,15 @@ export default class Player extends GameObject {
         }
 
         if (this.eatenBusselullar == 1) {
-            this.game.ui.busselulleUI1.src = "./assets/Lussekatt.png"
+            this.game.ui.busselulleUI1.src = "./public/assets/Lussekatt.png"
         } else if (this.eatenBusselullar == 2) {
-            this.game.ui.busselulleUI2.src = "./assets/Lussekatt.png"
+            this.game.ui.busselulleUI2.src = "./public/assets/Lussekatt.png"
         } else if (this.eatenBusselullar == 3) {
-            this.game.ui.busselulleUI3.src = "./assets/Lussekatt.png"
+            this.game.ui.busselulleUI3.src = "./public/assets/Lussekatt.png"
         } else if (this.eatenBusselullar == 4) {
-            this.game.ui.busselulleUI4.src = "./assets/Lussekatt.png"
+            this.game.ui.busselulleUI4.src = "./public/assets/Lussekatt.png"
         } else if (this.eatenBusselullar == 5) {
-            this.game.ui.busselulleUI5.src = "./assets/Lussekatt.png"
+            this.game.ui.busselulleUI5.src = "./public/assets/Lussekatt.png"
         }
 
         if (this.game.input.keys.has("a") || this.game.input.keys.has("ArrowLeft")) {
