@@ -1,4 +1,4 @@
-import GameObject from "./GameObject"
+import GameObject from "/src/GameObject"
 
 export default class Player extends GameObject {
     constructor(x, y, width, height, color, speed, game) {

@@ -1,4 +1,4 @@
-import GameObject from './src/GameObject'
+import GameObject from '/src/GameObject'
 
 export default class Ball extends GameObject {
     constructor(x, y, width, height, color) {
