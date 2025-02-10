@@ -13,6 +13,9 @@ export default class Player extends GameObject {
         this.acceleration = 0.2
         this.maxSpeed = 2
 
+        this.eatCooldown = 1500
+        this.currentEatCooldown = 0
+
         this.frameWidth = 64
         this.frameHeight = 64
         this.spriteX = 0
@@ -22,31 +25,77 @@ export default class Player extends GameObject {
         this.fps = 16
         this.interval = 1000 / this.fps
         this.hp = 4
+        this.eatenBusselullar = 0
+        this.random
+        this.jumpscared = true
     }
 
     update(deltaTime) {
-        console.log(this.hp)
-        if (this.hp <= 3) {
+
+        if (this.currentEatCooldown < this.eatCooldown) {
+            this.maxSpeed = 0
+        }
+        this.maxSpeed = 2
+
+        this.random = Math.random()
+
+        this.currentEatCooldown += deltaTime
+
+        if (this.hp == 4) {
+            this.game.ui.heart1.src = "./src/assets/Hjärta.png"
+            this.game.ui.heart2.src = "./src/assets/Hjärta.png"
+            this.game.ui.heart3.src = "./src/assets/Hjärta.png"
+            this.game.ui.heart4.src = "./src/assets/Hjärta.png"
+        }
+        if (this.hp == 3) {
+            this.game.ui.heart1.src = "./src/assets/Hjärta.png"
+            this.game.ui.heart2.src = "./src/assets/Hjärta.png"
+            this.game.ui.heart3.src = "./src/assets/Hjärta.png"
             this.game.ui.heart4.src = ""
         } 
-        if (this.hp <= 2) {
+        if (this.hp == 2) {
+            this.game.ui.heart1.src = "./src/assets/Hjärta.png"
+            this.game.ui.heart2.src = "./src/assets/Hjärta.png"
             this.game.ui.heart3.src = ""
+            this.game.ui.heart4.src = ""
         }
         if (this.hp <= 1) {
+            this.game.ui.heart1.src = "./src/assets/Hjärta.png"
             this.game.ui.heart2.src = ""
+            this.game.ui.heart3.src = ""
+            this.game.ui.heart4.src = ""
         }
         if (this.hp <= 0) {
             this.game.ui.heart1.src = ""
-            
+            this.game.ui.heart2.src = ""
+            this.game.ui.heart3.src = ""
+            this.game.ui.heart4.src = ""
         }
 
-        if (this.game.input.keys.has("a")) {
+        if (this.hp <= 0 && this.jumpscared == true) {
+            this.jumpscared = false
+            this.game.Jumpscare.spawnJumpscare()
+        }
+
+        if (this.eatenBusselullar == 1) {
+            this.game.ui.busselulleUI1.src = "./src/assets/Lussekatt.png"
+        } else if (this.eatenBusselullar == 2) {
+            this.game.ui.busselulleUI2.src = "./src/assets/Lussekatt.png"
+        } else if (this.eatenBusselullar == 3) {
+            this.game.ui.busselulleUI3.src = "./src/assets/Lussekatt.png"
+        } else if (this.eatenBusselullar == 4) {
+            this.game.ui.busselulleUI4.src = "./src/assets/Lussekatt.png"
+        } else if (this.eatenBusselullar == 5) {
+            this.game.ui.busselulleUI5.src = "./src/assets/Lussekatt.png"
+        }
+
+        if (this.game.input.keys.has("a") || this.game.input.keys.has("ArrowLeft")) {
             this.speedX -= this.acceleration
-        } if (this.game.input.keys.has("d")) {
+        } if (this.game.input.keys.has("d") || this.game.input.keys.has("ArrowRight")) {
             this.speedX += this.acceleration
-        } if (this.game.input.keys.has("w")) {
+        } if (this.game.input.keys.has("w") || this.game.input.keys.has("ArrowUp")) {
             this.speedY -= this.acceleration
-        } if (this.game.input.keys.has("s")) {
+        } if (this.game.input.keys.has("s") || this.game.input.keys.has("ArrowDown")) {
             this.speedY += this.acceleration
         }
 
@@ -63,21 +112,20 @@ export default class Player extends GameObject {
             this.speedX = -this.maxSpeed
         }
 
-        if (!this.game.input.keys.has("d") && !this.game.input.keys.has("a")) {
+        if (!this.game.input.keys.has("d") && !this.game.input.keys.has("a") && !this.game.input.keys.has("ArrowLeft") && !this.game.input.keys.has("ArrowRight")) {
             this.speedX = 0
         }
-        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s")) {
+        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("ArrowUp") && !this.game.input.keys.has("ArrowDown")) {
             this.speedY = 0
         }
-        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("d") && !this.game.input.keys.has("a")) {
+        if (!this.game.input.keys.has("w") && !this.game.input.keys.has("s") && !this.game.input.keys.has("d") && !this.game.input.keys.has("a") && !this.game.input.keys.has("ArrowUp") && !this.game.input.keys.has("ArrowDown") && !this.game.input.keys.has("ArrowLeft") && !this.game.input.keys.has("ArrowRight")) {
             this.spriteX = 0
             this.interval = 20000000
         }
 
         if (this.x > this.game.enemy.x - this.width && this.x < this.game.enemy.x + this.game.enemy.width && this.y > this.game.enemy.y - this.height && this.y < this.game.enemy.y + this.game.enemy.height) {
+            this.moveEnemy()
             this.hp -= 1
-            this.x = 700
-            this.y = 0
             this.speedX = 0
             this.speedY = 0
         }
@@ -110,8 +158,42 @@ export default class Player extends GameObject {
             this.interval = 1000 / this.fps
         }
 
-        this.x += this.speedX
-        this.y += this.speedY
+        this.game.bg.x -= this.speedX
+        this.game.bg.y -= this.speedY
+
+        //this.game.Walls.x -= this.speedX
+        //this.game.Walls.y -= this.speedY
+
+        this.game.enemy.x -= this.speedX
+        this.game.enemy.y -= this.speedY
+
+        this.game.wallsides1.x -= this.speedX
+        this.game.wallsides1.y -= this.speedY
+
+        this.game.walltopbottom1.x -= this.speedX
+        this.game.walltopbottom1.y -= this.speedY
+
+        this.game.busselulle1.x -= this.speedX
+        this.game.busselulle1.y -= this.speedY
+        this.game.busselulle2.x -= this.speedX
+        this.game.busselulle2.y -= this.speedY
+        this.game.busselulle3.x -= this.speedX
+        this.game.busselulle3.y -= this.speedY
+        this.game.busselulle4.x -= this.speedX
+        this.game.busselulle4.y -= this.speedY
+        this.game.busselulle5.x -= this.speedX
+        this.game.busselulle5.y -= this.speedY
+        this.game.busselulle6.x -= this.speedX
+        this.game.busselulle6.y -= this.speedY
+        this.game.busselulle7.x -= this.speedX
+        this.game.busselulle7.y -= this.speedY
+        this.game.busselulle8.x -= this.speedX
+        this.game.busselulle8.y -= this.speedY
+        this.game.busselulle9.x -= this.speedX
+        this.game.busselulle9.y -= this.speedY
+
+        this.game.äpple1.x -= this.speedX
+        this.game.äpple1.y -= this.speedY
 
         if (this.timer > this.interval) {
             this.spriteX++
@@ -127,5 +209,11 @@ export default class Player extends GameObject {
 
     draw(ctx) {
         ctx.drawImage(this.image, this.spriteX * this.frameWidth, this.spriteY * this.frameHeight, 64, 64, this.x, this.y, this.width, this.height)
+    }
+
+    moveEnemy() {
+        this.game.enemy.x = this.game.bg.x + this.game.bg.width * this.random
+        this.game.enemy.y = this.game.bg.y + this.game.bg.height * this.random
+        this.game.enemy.speed -= 0.15
     }
 }

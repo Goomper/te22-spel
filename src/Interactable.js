@@ -9,13 +9,14 @@ export default class Interactable extends GameObject {
     }
 
     update(deltaTime) {
+        /*
         if (this.player.x + this.player.width > this.x && this.game.player.x < this.x + this.width && this.player.y + this.player.height > this.y && this.game.player.y < this.y + this.height && this.game.input.keys.has("e")) {
-            this.player.x = 500
+            
         }
+        */
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color
-        ctx.fillRect(this.x, this.y, this.width, this.height)
+        //ctx.fillRect(this.x, this.y, this.width, this.height)
     }
 }

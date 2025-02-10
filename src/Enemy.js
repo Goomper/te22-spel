@@ -9,6 +9,7 @@ export default class Enemy extends GameObject {
         this.image = new Image()
         this.image.src = "./src/assets/Santa_Down.png"
         this.flip = false
+        this.eatenlussebullar = 0
     }
 
     update(deltaTime) {
@@ -25,20 +26,29 @@ export default class Enemy extends GameObject {
             this.y -= this.speed
         }
 
+        if (this.game.player.eatenBusselullar == 1 && this.eatenlussebullar == 0) {
+            this.eatenlussebullar += 1
+            this.speed += 0.3
+        }
+        else if (this.game.player.eatenBusselullar == 2 && this.eatenlussebullar == 1) {
+            this.eatenlussebullar += 1
+            this.speed += 0.5
+        }
+
         if (this.diffY > 0 && this.diffY >= this.diffX && this.diffY >= (this.diffX - this.diffX - this.diffX)) {
-            this.image.src = "./src/assets/Santa_Down.png"
+            this.image.src = "./src/assets/Final_Santa_Down.png"
             this.frameWidth = 240
             this.frameHeight = 260
         } else if (this.diffY <= 0 && this.diffY <= this.diffX && this.diffY <= (this.diffX - this.diffX - this.diffX)) {
-            this.image.src = "./src/assets/Santa_Up.png"
+            this.image.src = "./src/assets/Final_Santa_Up.png"
             this.frameWidth = 240
             this.frameHeight = 270
         } else if (this.diffX >= 0) {
-            this.image.src = "./src/assets/Santa_Right.png"
+            this.image.src = "./src/assets/Final_Santa_Right.png"
             this.frameWidth = 279
             this.frameHeight = 260
         } else if (this.diffX < 0) {
-            this.image.src = "./src/assets/Santa_Left.png"
+            this.image.src = "./src/assets/Final_Santa_Left.png"
             this.frameWidth = 280
             this.frameHeight = 260
         }
