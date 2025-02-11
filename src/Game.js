@@ -1,4 +1,4 @@
-import Input from "./src/Input"
+import Input from "src/Input"
 import Player from "./src/Player"
 import Enemy from "./src/Enemy"
 import Wallsides from "./src/Wallsides"
