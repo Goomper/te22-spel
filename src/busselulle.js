@@ -11,7 +11,7 @@ export default class busselulle {
         this.taken = false
 
         this.img = new Image()
-        this.img.src = "./public/assets/Lussekatt.png"
+        this.img.src = "/assets/Lussekatt.png"
     }
 
     eat() {

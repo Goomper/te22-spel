@@ -1,4 +1,4 @@
-import Game from "/src/Game.js"
+import Game from "./src/Game.js"
 
 const setup = (canvas) => {
   const ctx = canvas.getContext('2d') // Skapar en 2d-kontext för att rita på canvas

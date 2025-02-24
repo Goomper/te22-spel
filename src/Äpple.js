@@ -11,7 +11,7 @@ export default class Äpple {
         this.taken = false
 
         this.img = new Image()
-        this.img.src = "./public/assets/Äpple.png"
+        this.img.src = "/assets/Äpple.png"
     }
 
     eat() {

@@ -9,7 +9,7 @@ export default class Enemy {
         this.speed = speed
 
         this.image = new Image()
-        this.image.src = "./public/assets/Santa_Down.png"
+        this.image.src = "/assets/Santa_Down.png"
         this.flip = false
         this.eatenlussebullar = 0
     }

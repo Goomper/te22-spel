@@ -1,3 +1,5 @@
+// import tomteImg from "/assets/Tomte.png"
+
 export default class Player {
     constructor(x, y, width, height, color, speed, game) {
         this.x = x
@@ -9,7 +11,7 @@ export default class Player {
         this.game = game
 
         this.image = new Image()
-        this.image.src = "assets/Tomte.png"
+        this.image.src = "/assets/Tomte.png"
 
         this.speedX = 0
         this.speedY = 0
