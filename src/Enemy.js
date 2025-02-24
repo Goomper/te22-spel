@@ -1,3 +1,8 @@
+import santaDownImg from "/assets/Final_Santa_Down.png"
+import santaUpImg from "/assets/Final_Santa_Up.png"
+import santaRightImg from "/assets/Final_Santa_Right.png"
+import santaLeftImg from "/assets/Final_Santa_Left.png"
+
 export default class Enemy {
     constructor(x, y, width, height, color, speed, game) {
         this.x = x
@@ -9,7 +14,7 @@ export default class Enemy {
         this.speed = speed
 
         this.image = new Image()
-        this.image.src = "/assets/Santa_Down.png"
+        this.image.src = ""
         this.flip = false
         this.eatenlussebullar = 0
     }
@@ -38,19 +43,19 @@ export default class Enemy {
         }
 
         if (this.diffY > 0 && this.diffY >= this.diffX && this.diffY >= (this.diffX - this.diffX - this.diffX)) {
-            this.image.src = "./public/assets/Final_Santa_Down.png"
+            this.image.src = santaDownImg
             this.frameWidth = 240
             this.frameHeight = 260
         } else if (this.diffY <= 0 && this.diffY <= this.diffX && this.diffY <= (this.diffX - this.diffX - this.diffX)) {
-            this.image.src = "./public/assets/Final_Santa_Up.png"
+            this.image.src = santaUpImg
             this.frameWidth = 240
             this.frameHeight = 270
         } else if (this.diffX >= 0) {
-            this.image.src = "./public/assets/Final_Santa_Right.png"
+            this.image.src = santaRightImg
             this.frameWidth = 279
             this.frameHeight = 260
         } else if (this.diffX < 0) {
-            this.image.src = "./public/assets/Final_Santa_Left.png"
+            this.image.src = santaLeftImg
             this.frameWidth = 280
             this.frameHeight = 260
         }

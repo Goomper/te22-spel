@@ -1,4 +1,6 @@
-// import tomteImg from "/assets/Tomte.png"
+import tomteImg from "/assets/Tomte.png"
+import heartImg from "/assets/Hjärta.png"
+import lussekattImg from "/assets/Lussekatt.png"
 
 export default class Player {
     constructor(x, y, width, height, color, speed, game) {
@@ -11,7 +13,7 @@ export default class Player {
         this.game = game
 
         this.image = new Image()
-        this.image.src = "/assets/Tomte.png"
+        this.image.src = tomteImg
 
         this.speedX = 0
         this.speedY = 0
@@ -47,25 +49,25 @@ export default class Player {
         this.currentEatCooldown += deltaTime
 
         if (this.hp == 4) {
-            this.game.ui.heart1.src = "assets/Hjärta.png"
-            this.game.ui.heart2.src = "assets/Hjärta.png"
-            this.game.ui.heart3.src = "assets/Hjärta.png"
-            this.game.ui.heart4.src = "assets/Hjärta.png"
+            this.game.ui.heart1.src = heartImg
+            this.game.ui.heart2.src = heartImg
+            this.game.ui.heart3.src = heartImg
+            this.game.ui.heart4.src = heartImg
         }
         if (this.hp == 3) {
-            this.game.ui.heart1.src = "assets/Hjärta.png"
-            this.game.ui.heart2.src = "assets/Hjärta.png"
-            this.game.ui.heart3.src = "assets/Hjärta.png"
+            this.game.ui.heart1.src = heartImg
+            this.game.ui.heart2.src = heartImg
+            this.game.ui.heart3.src = heartImg
             this.game.ui.heart4.src = ""
         } 
         if (this.hp == 2) {
-            this.game.ui.heart1.src = "assets/Hjärta.png"
-            this.game.ui.heart2.src = "assets/Hjärta.png"
+            this.game.ui.heart1.src = heartImg
+            this.game.ui.heart2.src = heartImg
             this.game.ui.heart3.src = ""
             this.game.ui.heart4.src = ""
         }
         if (this.hp <= 1) {
-            this.game.ui.heart1.src = "assets/Hjärta.png"
+            this.game.ui.heart1.src = heartImg
             this.game.ui.heart2.src = ""
             this.game.ui.heart3.src = ""
             this.game.ui.heart4.src = ""
@@ -83,15 +85,15 @@ export default class Player {
         }
 
         if (this.eatenBusselullar == 1) {
-            this.game.ui.busselulleUI1.src = "assets/Lussekatt.png"
+            this.game.ui.busselulleUI1.src = lussekattImg
         } else if (this.eatenBusselullar == 2) {
-            this.game.ui.busselulleUI2.src = "assets/Lussekatt.png"
+            this.game.ui.busselulleUI2.src = lussekattImg
         } else if (this.eatenBusselullar == 3) {
-            this.game.ui.busselulleUI3.src = "assets/Lussekatt.png"
+            this.game.ui.busselulleUI3.src = lussekattImg
         } else if (this.eatenBusselullar == 4) {
-            this.game.ui.busselulleUI4.src = "assets/Lussekatt.png"
+            this.game.ui.busselulleUI4.src = lussekattImg
         } else if (this.eatenBusselullar == 5) {
-            this.game.ui.busselulleUI5.src = "assets/Lussekatt.png"
+            this.game.ui.busselulleUI5.src = lussekattImg
         }
 
         if (this.game.input.keys.has("a") || this.game.input.keys.has("ArrowLeft")) {

@@ -1,3 +1,5 @@
+import mapImg from "/assets/Map.png"
+
 export default class bg {
     constructor(game, width, height) {
         this.game = game
@@ -7,7 +9,7 @@ export default class bg {
         this.y = 0
 
         this.img = new Image()
-        this.img.src = "/assets/Map.png"
+        this.img.src = mapImg
 
         /*
         this.wall1.x = 61

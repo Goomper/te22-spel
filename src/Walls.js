@@ -1,3 +1,5 @@
+import WallsImg from "/assets/Väggar.png"
+
 export default class Walls {
     constructor(game, width, height) {
         this.game = game
@@ -7,7 +9,7 @@ export default class Walls {
         this.y = 0
 
         this.img = new Image()
-        this.img.src = "/assets/Väggar.png"
+        this.img.src = WallsImg
 
         //this.imgdata = new ImageData(20, 20, 20, 20)
 

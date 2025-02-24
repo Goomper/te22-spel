@@ -1,6 +1,9 @@
 export default class Walltopbottom {
     constructor(x, y, width, height, color, game, player) {
-        //super(x, y, width, height, color)
+        this.width = width
+        this.height = height
+        this.x = x
+        this.y = y
         this.color = color
         this.game = game
         this.player = player

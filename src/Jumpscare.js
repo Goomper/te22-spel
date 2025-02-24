@@ -1,3 +1,5 @@
+import Jumpscare from "/assets/Santa_Jumpscare.png"
+
 export default class Jumpscare {
     constructor(x, y, width, height, game) {
         this.x = x
@@ -42,13 +44,11 @@ export default class Jumpscare {
             this.jumpscare.src = ""
         }
 
-        //console.log(this.currentJumpscareTimer)
-
         this.currentJumpscareTimer -= deltaTime
     }
 
     spawnJumpscare() {
-        this.jumpscare.src = "./public/assets/Santa_Jumpscare.png"
+        this.jumpscare.src = Jumpscare
         this.currentJumpscareTimer = this.jumpscareTimer
         this.game.ui.timerun = false
     }

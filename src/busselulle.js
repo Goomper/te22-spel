@@ -1,6 +1,7 @@
+import lussekattImg from "/assets/Lussekatt.png"
+
 export default class busselulle {
     constructor(x, y, width, height, player, game) {
-        //super(x, y, width, height, player, game)
         this.x = x
         this.y = y
         this.width = width
@@ -11,7 +12,7 @@ export default class busselulle {
         this.taken = false
 
         this.img = new Image()
-        this.img.src = "/assets/Lussekatt.png"
+        this.img.src = lussekattImg
     }
 
     eat() {

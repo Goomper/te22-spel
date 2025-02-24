@@ -1,3 +1,6 @@
+import heartImg from "/assets/Hjärta.png"
+import UIImg from "/assets/UI_HealthBar.png"
+
 export default class UI {
     constructor(x, y, width, height, game) {
         this.x = x
@@ -6,15 +9,15 @@ export default class UI {
         this.height = height
         this.game = game
         this.heartbox = new Image()
-        this.heartbox.src = "/assets/UI_HealthBar.png"
+        this.heartbox.src = UIImg
         this.heart1 = new Image()
-        this.heart1.src = "/assets/Hjärta.png"
+        this.heart1.src = heartImg
         this.heart2 = new Image()
-        this.heart2.src = "/assets/Hjärta.png"
+        this.heart2.src = heartImg
         this.heart3 = new Image()
-        this.heart3.src = "/assets/Hjärta.png"
+        this.heart3.src = heartImg
         this.heart4 = new Image()
-        this.heart4.src = "/assets/Hjärta.png"
+        this.heart4.src = heartImg
 
         this.busselulleUI1 = new Image()
         this.busselulleUI1.src = ""

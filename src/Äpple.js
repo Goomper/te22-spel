@@ -1,6 +1,5 @@
 export default class Äpple {
     constructor(x, y, width, height, player, game) {
-        //super(x, y, width, height, player, game)
         this.x = x
         this.y = y
         this.width = width
