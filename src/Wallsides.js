@@ -1,8 +1,6 @@
-import GameObject from "./src/GameObject"
-
-export default class Wallsides extends GameObject {
+export default class Wallsides {
     constructor(x, y, width, height, color, game, player) {
-        super(x, y, width, height, color)
+        //super(x, y, width, height, color)
         this.color = color
         this.game = game
         this.player = player

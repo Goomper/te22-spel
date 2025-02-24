@@ -1,8 +1,10 @@
-import GameObject from "./src/GameObject"
-
-export default class Enemy extends GameObject {
+export default class Enemy {
     constructor(x, y, width, height, color, speed, game) {
-        super(x, y, width, height, color, speed)
+        this.x = x
+        this.y = y
+        this.width = width
+        this.height = height
+        this.color = color
         this.game = game
         this.speed = speed
 

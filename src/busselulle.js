@@ -1,8 +1,6 @@
-import Interactable from "./src/Interactable";
-
-export default class busselulle extends Interactable {
+export default class busselulle {
     constructor(x, y, width, height, player, game) {
-        super(x, y, width, height, player, game)
+        //super(x, y, width, height, player, game)
         this.x = x
         this.y = y
         this.width = width
