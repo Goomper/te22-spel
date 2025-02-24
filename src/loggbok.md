@@ -51,3 +51,5 @@ Finns Det Något Som Hindrar Dig?
 Hjälp Med?
 --
 * Inget jag kommit på än så länge.
+
+En till lektion.
