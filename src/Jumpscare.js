@@ -1,4 +1,4 @@
-import Jumpscare from "/assets/Santa_Jumpscare.png"
+import santaJumpscareImg from "/assets/Santa_Jumpscare.png"
 
 export default class Jumpscare {
     constructor(x, y, width, height, game) {
@@ -48,7 +48,7 @@ export default class Jumpscare {
     }
 
     spawnJumpscare() {
-        this.jumpscare.src = Jumpscare
+        this.jumpscare.src = santaJumpscareImg
         this.currentJumpscareTimer = this.jumpscareTimer
         this.game.ui.timerun = false
     }
