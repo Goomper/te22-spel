@@ -1,3 +1,5 @@
+import äppleimg from "/assets/Äpple.png"
+
 export default class Äpple {
     constructor(x, y, width, height, player, game) {
         this.x = x
@@ -10,7 +12,7 @@ export default class Äpple {
         this.taken = false
 
         this.img = new Image()
-        this.img.src = "/assets/Äpple.png"
+        this.img.src = äppleimg
     }
 
     eat() {
